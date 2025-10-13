@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'; // ou tu peux utiliser fetch()
+import UserForm from './Formular';
+import AddProductForm from './test';
+
 interface Stuff {
   _id: string,
   title: string,
@@ -18,13 +21,14 @@ function App() {
         setStuff(res.data);
       }
       catch(err){
-        alert(`Erreur lors de la récupération des objets : ${err}`);
+        alert(`Erreur lors de la récupération des donnees : ${err}`);
       }
     }
     response();
   }, []);
 
   return (
+    <>
     <div className='flex flex-col justify-center items-center h-screen'>
       <h1>Liste d'objets 📦</h1>
       {stuff.length === 0 ? (
@@ -42,6 +46,11 @@ function App() {
         </div>  
         )}
     </div>
+
+
+    <AddProductForm />
+  <UserForm/>
+    </>
   );
 }
 
