@@ -43,4 +43,9 @@ app.get('/api/stuff', (req, res, next) => {
     });
 });
 
+app.get('/api/stuff/:id', (req, res, next) => {
+  products.findOne({ _id: req.params.id })
+    .then(product => res.status(200).json(product))
+    .catch(error => res.status(404).json({ error }));
+});
 module.exports = app;
