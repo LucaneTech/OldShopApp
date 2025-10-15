@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeroSection from '../components/Hero'
 import axios from "axios";
 import CardElement from "../components/cardProduct";
+import { Link } from "react-router-dom";
 
 export interface CardElementProps {
     _id: number
@@ -41,6 +42,10 @@ const Home: React.FC = () => {
     return (
         <>
             <HeroSection />
+            <Link to="/add" className="bg-blue-500 text-white px-4 py-2 rounded">
+                Ajouter un Produit
+            </Link>
+            <h2 className="text-2xl font-bold mt-8">Nos Produits</h2>
             {/** Products section on grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  p-4 mt-12">
                 {data.map((product) => (

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export interface CardElementProps {
   title: string;
@@ -50,12 +51,11 @@ const CardElement: React.FC<CardElementProps> = ({
   return (
     <div className="border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all bg-white p-4 w-full max-w-56">
       <div className="group cursor-pointer flex items-center justify-center">
-        <img
-          className="group-hover:scale-105 transition-transform duration-300 w-32 h-32 object-contain"
+       <Link to={`/product/${_id}`}> <img
           src={imageUrl}
           alt={title}
-          onClick={() => (window.location.href = `http://localhost:3000/api/stuff/${_id}`)}
-        />
+          className="h-40 w-full object-contain group-hover:scale-105 transition-transform"
+        /></Link>
       </div>
 
       <div className="mt-3 text-gray-600 text-sm">
